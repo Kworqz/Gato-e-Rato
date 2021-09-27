@@ -20,7 +20,7 @@ function setup(){
 
 function draw() {
 
-    background(255);
+    background(backgoundImg);
     if(gato.x - rato.x < (gato.width + rato.width)/2 ){
     gato.velocityX = 0
     gato.addAnimation("gatofeliz",catImg3);
