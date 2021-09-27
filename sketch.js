@@ -1,15 +1,20 @@
 var gato,rato;
 
 function preload() {
-    backgroundImg = loadImage(images/garden.png)
-    gatoImg1 = loadImage(images/cat1.png);
-    ratoImg1 = loadImage(images/mouse1.png);
-    gatoImg2 = loadImage(images/cat2.png, images/cat3.png)
-    ratoImg2 = loadImage(images/mouse2.png, images/mouse3.png);
+    backgroundImg = loadImage("images/garden.png")
+    gatoImg1 = loadImage("images/cat1.png");
+    ratoImg1 = loadImage("images/mouse1.png");
+    gatoImg2 = loadImage("images/cat2.png")
+    ratoImg2 = loadImage("images/mouse2.png");
+    gatoImg3 = loadImage("images/cat3.png");
+    ratoImg3 = loadImage("images/mouse3.png");
 }
 
 function setup(){
     createCanvas(1000,800);
+    background1 = createSprite(420,320,10,10)
+    background1.addImage(backgroundImg);  
+    background1.scale = 1.5;
     gato = createSprite(850,600);
     gato.addAnimation("gatoSentado",gatoImg1);
     gato.scale  = 0.2;
@@ -20,19 +25,20 @@ function setup(){
 
 function draw() {
 
-    background(backgoundImg);
+    background(backgroundImg);
     if(gato.x - rato.x < (gato.width + rato.width)/2 ){
     gato.velocityX = 0
-    gato.addAnimation("gatofeliz",catImg3);
+    gato.addAnimation("gatofeliz",gatoImg3);
     gato.changeAnimation("gatofeliz");
-    cat.x = 300;
-    cat.scale = 0.2;
+    gato.x = 300;
+    gato.scale = 0.2;   }
+   
+    keyPressed();
 
-
-    }
+    
     drawSprites();
-
-}
+    }
+    
 
 
 function keyPressed(){
