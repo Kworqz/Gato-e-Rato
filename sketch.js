@@ -11,27 +11,22 @@ function preload() {
 }
 
 function setup(){
-    createCanvas(1000,800);
-    background1 = createSprite(420,320,10,10)
-    background1.addImage(backgroundImg);  
-    background1.scale = 1.5;
+    createCanvas(1000,800);  
     gato = createSprite(850,600);
     gato.addAnimation("gatoSentado",gatoImg1);
-    gato.scale  = 0.2;
     rato = createSprite(250,600);
     rato.addAnimation("rato1", ratoImg1);
-    rato.scale = 0.3;  
 }
 
 function draw() {
 
     background(backgroundImg);
     if(gato.x - rato.x < (gato.width + rato.width)/2 ){
-    gato.velocityX = 0
+    gato.velocityX = 0;
     gato.addAnimation("gatofeliz",gatoImg3);
     gato.changeAnimation("gatofeliz");
-    gato.x = 300;
-    gato.scale = 0.2;   }
+    gato.x = 300;   
+    }
    
     keyPressed();
 
@@ -45,9 +40,11 @@ function keyPressed(){
 
     if(keyDown("left")){
 
-        mouse.addAnimation("ratoProvocando", ratoImg2);
-        mouse.changeAnimation("ratoProvocando");
-        mouse.frameDelay = 25; //tia eu absolutamente n sei oq é esse código de framedelay...
+        rato.addAnimation("ratoProvocando", ratoImg2);
+        rato.changeAnimation("ratoProvocando");
+        gato.addAnimation("gatoAndando", gatoImg2);
+        gato.changeAnimation("gatoAndando");
+        rato.frameDelay = 25; //tia eu absolutamente n sei oq é esse código de framedelay...
         gato.velocityX = -5;
          }
 
